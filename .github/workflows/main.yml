@@ -63,10 +63,10 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
+          # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull Kabelka-belka/infra-actions
+            sudo docker pull kabelka-belka/infra-actions
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 8000:8000 Kabelka-belka/infra-actions
+            sudo docker run --rm -d -p 8000:8000 kabelka-belka/infra-actions
   
