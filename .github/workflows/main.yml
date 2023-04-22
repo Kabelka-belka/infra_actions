@@ -52,7 +52,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: Kabelka-belka/infra-actions:latest
+          tags: "Kabelka-belka"/infra-actions:latest
   deploy:
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
@@ -66,7 +66,7 @@ jobs:
           # passphrase: ${{ secrets.PASSPHRASE }}
           script: |
             # Выполняет pull образа с DockerHub
-            sudo docker pull Kabelka-belka/infra-actions
+            sudo docker pull "Kabelka-belka"/infra-actions
             sudo docker stop $(sudo docker ps -a -q)
-            sudo docker run --rm -d -p 8000:8000 Kabelka-belka/infra-actions
+            sudo docker run --rm -d -p 8000:8000 "Kabelka-belka"/infra-actions
   
